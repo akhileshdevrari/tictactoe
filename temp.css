@@ -1,0 +1,42 @@
+/*.wrapper{
+	text-align: center;
+}
+.heading{
+	font-family: palatino;
+	color: #992600;
+}
+.td{
+	border: 1px solid green;
+	height: 100px;
+	width: 100px;
+	text-align: center;
+	font-size: 200%;
+	font-family: Helvetica;
+	color: #8000ff;
+}
+.grid{
+	margin:1em auto;
+	border: 2px solid white;
+	border-collapse: collapse;
+}
+.reset_button {
+	margin:1em auto;
+    background-color: #4CAF50; /* Green */
+/*    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;	    
+}
+.result{
+	color: #992600;
+	font-size: 200%;
+}
+footer{
+	color: #000099;
+	font-size: 80%;
+	display: block;
+}
+*/

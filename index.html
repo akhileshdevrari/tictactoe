@@ -6,7 +6,17 @@
 </head>
 <body>
 <div class="wrapper">
-	<h1 class="heading">TicTacToe</h1>
+	<h1 class="heading">Tic.Tac.Toe</h1>
+	<br>
+
+	  <a class="btn blue" id="dumb_btn" onclick="play_dumb()">Dumb</a>
+	  <a class="btn green" id="easy_btn" onclick="play_easy()">Easy</a>
+	  <a class="btn purple" id="master_btn" onclick="play_master()">Master</a>
+	  <a class="btn orange" id="two_btn" onclick="play_two()">2-Player</a>
+	  <div class="first_turn" id="human_first_div"></div>
+	  <div class="first_turn" id="ai_first_div"></div>
+	  
+	  <div class="level" id="level"></div>
 	<br>
 	<table class="grid">
 	    <tr>
@@ -30,11 +40,11 @@
 	<br>
 	<div id="result" class="result"></div>
 	<br>
-	<button class="reset_button" onclick="reset()">Reset</button>
+	<a class="reset_button green" onclick="reset()">Reset</a>
 
 	<br><br>
 	<footer>
-	<a href="https://github.com/akhileshdevrari/">Created by Akhilesh Devrari</a>
+	<a target="_blank" href="https://github.com/akhileshdevrari/">Created by Akhilesh Devrari</a>
 	</footer>
 </div>
 

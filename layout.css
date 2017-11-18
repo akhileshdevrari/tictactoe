@@ -1,41 +1,138 @@
-		.wrapper{
-			text-align: center;
-		}
-		.heading{
-			font-family: palatino;
-			color: #992600;
-		}
-		.td{
-			border: 1px solid green;
-			height: 100px;
-			width: 100px;
-			text-align: center;
-			font-size: 200%;
-			font-family: Helvetica;
-			color: #8000ff;
-		}
-		.grid{
-			margin:1em auto;
-			border: 2px solid white;
-			border-collapse: collapse;
-		}
-		.reset_button {
-			margin:1em auto;
-		    background-color: #4CAF50; /* Green */
-		    border: none;
-		    color: white;
-		    padding: 15px 32px;
-		    text-align: center;
-		    text-decoration: none;
-		    display: inline-block;
-		    font-size: 16px;	    
-		}
-		.result{
-			color: #992600;
-			font-size: 200%;
-		}
-		footer{
-			color: #000099;
-			font-size: 80%;
-			display: block;
-		}
+html,body {
+    background-color:#FFFFFF;
+   width:100%;
+    height:100%;
+}
+
+.wrapper{
+    text-align: center;
+}
+.heading{
+    font-family: palatino;
+    color: darkorchid;
+}
+.td{
+    border: 1px solid teal;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    font-size: 200%;
+    font-family: Helvetica;
+}
+.grid{
+    margin:1em auto;
+    border: 2px solid white;
+    border-collapse: collapse;
+}
+.reset_button {
+      cursor: pointer;
+      margin: 5px;
+      border-radius: 5px;
+      text-decoration: none;
+      padding: 10px;
+      font-size: 24px;
+      transition: .3s;
+      -webkit-transition: .3s;
+      -moz-transition: .3s;
+      -o-transition: .3s;
+      display: inline-block;       
+}
+.reset_button:hover {
+  cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+.result{
+    color: #ff3333;
+    font-size: 200%;
+}
+footer{
+    color: #000099;
+    font-size: 80%;
+    display: block;
+}
+
+.level{
+    color:  teal;
+}
+
+.first_turn {
+    display: inline;
+}
+
+
+.btn {
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 14px;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  display: inline-block;
+}
+
+.btn:hover {
+  cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+.blue {
+  color: #55acee;
+  border: 2px #55acee solid;
+}
+
+.blue:hover {
+  background-color: #55acee;
+  color: #fff
+}
+
+.green {
+  color: #2ecc71;
+  border: 2px #2ecc71 solid;
+}
+
+.green:hover {
+  color: #fff;
+  background-color: #2ecc71;
+}
+
+.red {
+  color: #e74c3c;
+  border: 2px #e74c3c solid;
+}
+
+.red:hover {
+  color: #fff;
+  background-color: #e74c3c;
+}
+
+.purple {
+  color: #9b59b6;
+  border: 2px #9b59b6 solid;
+}
+
+.purple:hover {
+  color: #fff;
+  background-color: #9b59b6;
+}
+
+.orange {
+  color: #e67e22;
+  border: 2px #e67e22 solid;
+}
+
+.orange:hover {
+  color: #fff;
+  background-color: #e67e22;
+}
+
+.yellow {
+  color: #f1c40f;
+  border: 2px #f1c40f solid;
+}
+
+.yellow:hover {
+  color: #fff;
+  background-color: #f1c40f;
+}
