@@ -5,7 +5,7 @@ for ( var i = 0; i < 3; i++ ) {
 }
 
 
- window.onload=function()
+ window.onload=function()	//Initialing variables. Don't even needed now, except turn=0
  {
  	ai = "X";
  	human = "0";
@@ -13,7 +13,7 @@ for ( var i = 0; i < 3; i++ ) {
  	turn = 0;
  }
 
-function start_game()
+function start_game()	//Starts game by add event listeners on grid
 {
 	if(mode == "dumb")
 		document.getElementById("level").innerHTML = "Should be a Cakewalk!";
@@ -32,7 +32,7 @@ function start_game()
 	 document.getElementById("22").addEventListener("click", function(){fill(2,2);});
 }
 
-function end_game()
+function end_game()	//Ends game by removing event listeners on grid
 {
 	document.getElementById("00").outerHTML = document.getElementById("00").outerHTML;
 	document.getElementById("01").outerHTML = document.getElementById("01").outerHTML;
@@ -46,7 +46,7 @@ function end_game()
 }
 
  
-function fill(i, j) {
+function fill(i, j) {	//Function to fill (i,j) location in grid
 	console.log("i = "+i+"  j = "+j+"  turn = "+turn+"  ai = "+ai);
 	if(matrix[i][j] != "")
 		return;
@@ -59,11 +59,11 @@ function fill(i, j) {
 	display();
 	if(check() == true)
 		return;
-	if((turn%2 == 1 && ai=="X") || (turn%2==0 && ai=="0"))
+	if((turn%2 == 1 && ai=="X") || (turn%2==0 && ai=="0"))	//One time ai, one time human
 		master();
 }
 
-function display()
+function display()//Shows grid elements
 {
 	var i, j;
 	for(i=0; i<3; i++)
@@ -75,7 +75,7 @@ function display()
 		}
 }
 
-function check()
+function check() //returns true when game ends with results
 {
 	var temp = score(matrix);
 	if(isfull(matrix)==false && temp==0)
@@ -95,12 +95,12 @@ function check()
 	return true;
 }
 
-function reset()
+function reset()	//reload page
 {
 	location.reload();
 }
 
-function select_move(grid, player)
+function select_move(grid, player)	//minimax algorithm's main recursive formula
 {
 	if((isfull(grid)==true && score(grid)==0) )
 		return 0;
@@ -117,7 +117,6 @@ function select_move(grid, player)
 					grid[i][j] = human;
 				else grid[i][j] = ai;
 				temp = select_move(grid, (player+1)%2);
-				// console.log("baad wala temp = "+temp);
 				if(temp > max)
 					max = temp;
 				if(temp < min)
@@ -127,16 +126,16 @@ function select_move(grid, player)
 			}
 		}
 	}
-	if(player==0)
+	if(player==0)	//if AI's turn, return maximum
 		return max;
-	else return min;
+	else return min;	//if Human's turn return minimum
 }
 
-function master()
+function master()	//initializes minimax algorithm
 {
-	if(mode=="two")
+	if(mode=="two")	//nothing to do in two player mode
 		return;
-	if(mode=="dumb")
+	if(mode=="dumb") //just fill a random box in dumb mode
 	{
 		var r;
 		for(r = Math.floor(9*Math.random()); matrix[parseInt(r/3)][r%3] != ""; r = Math.floor(9*Math.random()));
@@ -155,6 +154,8 @@ function master()
 			return;
 		}
 	}
+	//master mode
+	//initialize the decision tree and call minimax
 	var i, j, move=parseInt(turn), temp, max = -20;
 	var grid = [];
 	for (i = 0; i < 3; i++ ) {
@@ -171,7 +172,6 @@ function master()
 			{
 				grid[i][j] = ai;
 				temp = select_move(grid, 1);
-				//console.log("i = "+i+"  j = "+j+"  temp = "+temp);
 				if(temp>max)
 				{
 					max = temp;
@@ -181,11 +181,10 @@ function master()
 			}
 		}
 	}
-	//console.log("move "+move);
 	fill(parseInt(move/3), parseInt(move%3));
 }
 
-function isfull(grid)
+function isfull(grid)	//return true if grid is full
 {
 	for(var i=0; i<3; i++)
 		for(var j=0; j<3; j++)
@@ -194,7 +193,7 @@ function isfull(grid)
 	return true;
 }
 
-function score(grid)
+function score(grid) //returns 10 if AI wins, -10 if AI lose, 0 otherwise
 {
 	count++;
 	var ans = 0;
@@ -220,7 +219,7 @@ function score(grid)
 	return ans;
 }
 
-function show(grid)
+function show(grid) //utility function to print grid on console
 {
 	console.log("Grid is");
 	console.log(grid[0][0]+" "+grid[0][1]+" "+grid[0][2]);
@@ -250,11 +249,9 @@ function play_master(){
 function play_two(){
 	mode = "two";
 	disappear();
-	// document.getElementById("mode").innerHTML = "2-Player";
 	start_game();
 }
 function ai_play_first(){
-	// console.log("ooooooooooooooo");
 	ai = "0";
 	human = "X";
 	var e = document.getElementById("human_first");
@@ -275,9 +272,7 @@ function human_play_first(){
 	start_game();
 }
 
-
-
-function disappear() {
+function disappear() {	//disappear level buttons on clicking one
 	var e = document.getElementById("dumb_btn");
     e.style.display = "none";
     var e = document.getElementById("easy_btn");
@@ -288,8 +283,7 @@ function disappear() {
     e.style.display = "none";
 }
 
-
-function first_move(){
+function first_move(){	//if single player mode is on, make two more buttons
 	document.getElementById("human_first_div").innerHTML = "<a class=\"btn red\" id=\"human_first\" onclick=\"human_play_first()\">You move first</a>";
 	document.getElementById("ai_first_div").innerHTML = "<a class=\"btn purple\" id=\"ai_first\" onclick=\"ai_play_first()\">AI moves first</a>";
 }
